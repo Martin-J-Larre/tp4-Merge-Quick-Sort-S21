@@ -57,12 +57,24 @@ public class MergeSort {
             k++;
         }
     }
-    // Funcion principal que ordena arr[l..r] usando mezclar()
-    //void ordenar(int arr[], int l, int r){
-    // ********   TODO  *********
-    // ********   TODO  *********
-    // ********   TODO  *********
-    //}
+    //Funcion principal que ordena arr[l..r] usando mezclar()
+    void ordenar(int arr[], int l, int r){
+        // izq = l
+        // der = r
+        if (l < r) {
+            // Encontar el elemento central m
+            int m = l + (r - l) / 2;
+            
+            // Ordenar desde izq hasta m
+            ordenar(arr, l, m);
+            // Ordenar desde m + 1 hasta der
+            ordenar(arr, m + 1, r);
+            // Mezclar las mitades ordenadas
+            mezclar(arr, l, m ,r);
+            
+            /*la recursión termina cuando izq == der*/
+        }
+    }
         
     /* Una función que sirve para mostrar un array de tamaño n */
     static void MostrarArray(int arr[]){
